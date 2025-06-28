@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.dreamercloud",
+      "bundleIdentifier": "com.sporeever.dreamercloud",
       "buildNumber": "1",
       "infoPlist": {
         "NSMicrophoneUsageDescription": "This app uses the microphone to record your dreams via voice input.",
@@ -29,7 +29,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#1f2937"
       },
-      "package": "com.yourname.dreamercloud",
+      "package": "com.sporeever.dreamercloud",
       "versionCode": 1,
       "permissions": [
         "android.permission.RECORD_AUDIO",
