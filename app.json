@@ -19,9 +19,57 @@
       "bundleIdentifier": "com.sporeever.dreamercloud",
       "buildNumber": "1",
       "infoPlist": {
-        "NSMicrophoneUsageDescription": "This app uses the microphone to record your dreams via voice input.",
-        "NSCameraUsageDescription": "This app uses the camera to capture dream-related images.",
-        "NSPhotoLibraryUsageDescription": "This app accesses your photo library to select dream images."
+        "NSMicrophoneUsageDescription": "This app uses the microphone to 
+record your dreams via voice input with ElevenLabs AI transcription.",
+        "NSCameraUsageDescription": "This app uses the camera to capture 
+dream-related images for your personal dream journal.",
+        "NSPhotoLibraryUsageDescription": "This app accesses your photo 
+library to select and upload dream images to enhance your journal 
+entries.",
+        "NSPhotoLibraryAddUsageDescription": "This app saves AI-generated 
+dream artwork to your photo library.",
+        "NSLocationWhenInUseUsageDescription": "This app may use location 
+to provide context for your dreams (optional).",
+        "NSFaceIDUsageDescription": "Use Face ID to securely access your 
+dream journal.",
+        "NSAppleMusicUsageDescription": "Access your music library to 
+enhance dream recording sessions.",
+        "NSBluetoothAlwaysUsageDescription": "Connect to Bluetooth devices 
+for enhanced audio recording.",
+        "NSBluetoothPeripheralUsageDescription": "Connect to Bluetooth 
+accessories for dream recording.",
+        "NSContactsUsageDescription": "Access contacts to share dreams 
+with friends (optional).",
+        "NSCalendarsUsageDescription": "Add dream reminders to your 
+calendar (optional).",
+        "NSRemindersUsageDescription": "Create reminders for dream 
+journaling (optional).",
+        "NSMotionUsageDescription": "Detect sleep patterns to suggest 
+optimal dream recording times (optional).",
+        "NSHealthShareUsageDescription": "Share sleep data to enhance 
+dream analysis (optional).",
+        "NSHealthUpdateUsageDescription": "Update health data with dream 
+insights (optional).",
+        "NSUserTrackingUsageDescription": "This identifier will be used to 
+deliver personalized dream analysis and improve the app experience.",
+        "ITSAppUsesNonExemptEncryption": false,
+        "UIBackgroundModes": [
+          "audio",
+          "background-processing"
+        ],
+        "UIRequiredDeviceCapabilities": [
+          "arm64"
+        ],
+        "UIStatusBarStyle": "UIStatusBarStyleLightContent",
+        "UIViewControllerBasedStatusBarAppearance": false
+      },
+      "associatedDomains": [
+        "applinks:dreamercloud.app",
+        "applinks:*.dreamercloud.app"
+      ],
+      "usesAppleSignIn": true,
+      "config": {
+        "usesNonExemptEncryption": false
       }
     },
     "android": {
@@ -34,34 +82,168 @@
       "permissions": [
         "android.permission.RECORD_AUDIO",
         "android.permission.CAMERA",
-        "android.permission.READ_EXTERNAL_STORAGE"
-      ]
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.READ_MEDIA_AUDIO",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.WAKE_LOCK",
+        "android.permission.VIBRATE",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.READ_CONTACTS",
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR",
+        "android.permission.BODY_SENSORS",
+        "android.permission.ACTIVITY_RECOGNITION",
+        "com.android.vending.BILLING"
+      ],
+      "blockedPermissions": [
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
+      "allowBackup": true,
+      "icon": "./assets/icon.png"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "server"
     },
     "plugins": [
       [
         "expo-build-properties",
         {
           "ios": {
-            "deploymentTarget": "13.0"
+            "deploymentTarget": "13.0",
+            "newArchEnabled": false
           },
           "android": {
             "compileSdkVersion": 34,
             "targetSdkVersion": 34,
-            "minSdkVersion": 21
+            "minSdkVersion": 21,
+            "buildToolsVersion": "34.0.0",
+            "newArchEnabled": false
           }
         }
       ],
-      "expo-av",
-      "expo-image-picker",
-      "expo-secure-store"
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow DreamerCloud to access your 
+microphone for voice dream recording."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "DreamerCloud needs access to your photo 
+library to select dream images.",
+          "cameraPermission": "DreamerCloud needs access to your camera to 
+capture dream-related photos.",
+          "savePhotosPermission": "DreamerCloud needs permission to save 
+AI-generated dream artwork to your photo library."
+        }
+      ],
+      [
+        "expo-secure-store"
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow DreamerCloud to access your camera 
+for capturing dream images.",
+          "microphonePermission": "Allow DreamerCloud to access your 
+microphone for video recording with audio."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow DreamerCloud to access your photo 
+library to save and manage dream artwork.",
+          "savePhotosPermission": "Allow DreamerCloud to save AI-generated 
+dream images to your photo library.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow DreamerCloud to 
+use your location to provide contextual dream insights (optional).",
+          "locationAlwaysPermission": "Allow DreamerCloud to access 
+location for sleep pattern analysis (optional).",
+          "locationWhenInUsePermission": "Allow DreamerCloud to access 
+your location for dream context (optional).",
+          "isIosBackgroundLocationEnabled": false,
+          "isAndroidBackgroundLocationEnabled": false,
+          "isAndroidForegroundServiceEnabled": false
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#8b5cf6",
+          "defaultChannel": "default",
+          "sounds": [
+            "./assets/notification.wav"
+          ]
+        }
+      ],
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Allow DreamerCloud to access your 
+contacts to share dreams with friends (optional)."
+        }
+      ],
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "Allow DreamerCloud to access your 
+calendar to set dream recording reminders (optional)."
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow DreamerCloud to access motion sensors 
+for sleep pattern detection (optional)."
+        }
+      ],
+      [
+        "expo-router",
+        {
+          "origin": "https://dreamercloud.app/"
+        }
+      ]
     ],
     "extra": {
       "eas": {
         "projectId": "your-eas-project-id"
-      }
-    }
+      },
+      "EXPO_PUBLIC_REVENUECAT_PUBLIC_KEY": "your_revenuecat_public_key",
+      "EXPO_PUBLIC_SUPABASE_URL": "your_supabase_project_url",
+      "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your_supabase_anon_key",
+      "EXPO_PUBLIC_ELEVENLABS_API_KEY": "your_elevenlabs_api_key"
+    },
+    "owner": "sporeever",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "githubUrl": "https://github.com/sporeever/dreamercloud-mobile",
+    "scheme": "dreamercloud"
   }
 }
+
