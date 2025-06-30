@@ -1,4 +1,7 @@
 {
+  "cli": {
+    "appVersionSource": "remote"
+  },
   "expo": {
     "name": "DreamerCloud",
     "slug": "dreamercloud",
@@ -19,39 +22,22 @@
       "bundleIdentifier": "com.sporeever.dreamercloud",
       "buildNumber": "1",
       "infoPlist": {
-        "NSMicrophoneUsageDescription": "This app uses the microphone to 
-record your dreams via voice input with ElevenLabs AI transcription.",
-        "NSCameraUsageDescription": "This app uses the camera to capture 
-dream-related images for your personal dream journal.",
-        "NSPhotoLibraryUsageDescription": "This app accesses your photo 
-library to select and upload dream images to enhance your journal 
-entries.",
-        "NSPhotoLibraryAddUsageDescription": "This app saves AI-generated 
-dream artwork to your photo library.",
-        "NSLocationWhenInUseUsageDescription": "This app may use location 
-to provide context for your dreams (optional).",
-        "NSFaceIDUsageDescription": "Use Face ID to securely access your 
-dream journal.",
-        "NSAppleMusicUsageDescription": "Access your music library to 
-enhance dream recording sessions.",
-        "NSBluetoothAlwaysUsageDescription": "Connect to Bluetooth devices 
-for enhanced audio recording.",
-        "NSBluetoothPeripheralUsageDescription": "Connect to Bluetooth 
-accessories for dream recording.",
-        "NSContactsUsageDescription": "Access contacts to share dreams 
-with friends (optional).",
-        "NSCalendarsUsageDescription": "Add dream reminders to your 
-calendar (optional).",
-        "NSRemindersUsageDescription": "Create reminders for dream 
-journaling (optional).",
-        "NSMotionUsageDescription": "Detect sleep patterns to suggest 
-optimal dream recording times (optional).",
-        "NSHealthShareUsageDescription": "Share sleep data to enhance 
-dream analysis (optional).",
-        "NSHealthUpdateUsageDescription": "Update health data with dream 
-insights (optional).",
-        "NSUserTrackingUsageDescription": "This identifier will be used to 
-deliver personalized dream analysis and improve the app experience.",
+        "NSMicrophoneUsageDescription": "This app uses the microphone to record your dreams via voice input with ElevenLabs AI transcription.",
+        "NSCameraUsageDescription": "This app uses the camera to capture dream-related images for your personal dream journal.",
+        "NSPhotoLibraryUsageDescription": "This app accesses your photo library to select and upload dream images to enhance your journal entries.",
+        "NSPhotoLibraryAddUsageDescription": "This app saves AI-generated dream artwork to your photo library.",
+        "NSLocationWhenInUseUsageDescription": "This app may use location to provide context for your dreams (optional).",
+        "NSFaceIDUsageDescription": "Use Face ID to securely access your dream journal.",
+        "NSAppleMusicUsageDescription": "Access your music library to enhance dream recording sessions.",
+        "NSBluetoothAlwaysUsageDescription": "Connect to Bluetooth devices for enhanced audio recording.",
+        "NSBluetoothPeripheralUsageDescription": "Connect to Bluetooth accessories for dream recording.",
+        "NSContactsUsageDescription": "Access contacts to share dreams with friends (optional).",
+        "NSCalendarsUsageDescription": "Add dream reminders to your calendar (optional).",
+        "NSRemindersUsageDescription": "Create reminders for dream journaling (optional).",
+        "NSMotionUsageDescription": "Detect sleep patterns to suggest optimal dream recording times (optional).",
+        "NSHealthShareUsageDescription": "Share sleep data to enhance dream analysis (optional).",
+        "NSHealthUpdateUsageDescription": "Update health data with dream insights (optional).",
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized dream analysis and improve the app experience.",
         "ITSAppUsesNonExemptEncryption": false,
         "UIBackgroundModes": [
           "audio",
@@ -103,7 +89,10 @@ deliver personalized dream analysis and improve the app experience.",
         "android.permission.WRITE_CALENDAR",
         "android.permission.BODY_SENSORS",
         "android.permission.ACTIVITY_RECOGNITION",
-        "com.android.vending.BILLING"
+        "com.android.vending.BILLING",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "android.permission.WRITE_CONTACTS"
       ],
       "blockedPermissions": [
         "android.permission.SYSTEM_ALERT_WINDOW"
@@ -121,7 +110,7 @@ deliver personalized dream analysis and improve the app experience.",
         "expo-build-properties",
         {
           "ios": {
-            "deploymentTarget": "13.0",
+            "deploymentTarget": "13.4",
             "newArchEnabled": false
           },
           "android": {
@@ -136,19 +125,15 @@ deliver personalized dream analysis and improve the app experience.",
       [
         "expo-av",
         {
-          "microphonePermission": "Allow DreamerCloud to access your 
-microphone for voice dream recording."
+          "microphonePermission": "Allow DreamerCloud to access your microphone for voice dream recording."
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "DreamerCloud needs access to your photo 
-library to select dream images.",
-          "cameraPermission": "DreamerCloud needs access to your camera to 
-capture dream-related photos.",
-          "savePhotosPermission": "DreamerCloud needs permission to save 
-AI-generated dream artwork to your photo library."
+          "photosPermission": "DreamerCloud needs access to your photo library to select dream images.",
+          "cameraPermission": "DreamerCloud needs access to your camera to capture dream-related photos.",
+          "savePhotosPermission": "DreamerCloud needs permission to save AI-generated dream artwork to your photo library."
         }
       ],
       [
@@ -157,31 +142,24 @@ AI-generated dream artwork to your photo library."
       [
         "expo-camera",
         {
-          "cameraPermission": "Allow DreamerCloud to access your camera 
-for capturing dream images.",
-          "microphonePermission": "Allow DreamerCloud to access your 
-microphone for video recording with audio."
+          "cameraPermission": "Allow DreamerCloud to access your camera for capturing dream images.",
+          "microphonePermission": "Allow DreamerCloud to access your microphone for video recording with audio."
         }
       ],
       [
         "expo-media-library",
         {
-          "photosPermission": "Allow DreamerCloud to access your photo 
-library to save and manage dream artwork.",
-          "savePhotosPermission": "Allow DreamerCloud to save AI-generated 
-dream images to your photo library.",
+          "photosPermission": "Allow DreamerCloud to access your photo library to save and manage dream artwork.",
+          "savePhotosPermission": "Allow DreamerCloud to save AI-generated dream images to your photo library.",
           "isAccessMediaLocationEnabled": true
         }
       ],
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow DreamerCloud to 
-use your location to provide contextual dream insights (optional).",
-          "locationAlwaysPermission": "Allow DreamerCloud to access 
-location for sleep pattern analysis (optional).",
-          "locationWhenInUsePermission": "Allow DreamerCloud to access 
-your location for dream context (optional).",
+          "locationAlwaysAndWhenInUsePermission": "Allow DreamerCloud to use your location to provide contextual dream insights (optional).",
+          "locationAlwaysPermission": "Allow DreamerCloud to access location for sleep pattern analysis (optional).",
+          "locationWhenInUsePermission": "Allow DreamerCloud to access your location for dream context (optional).",
           "isIosBackgroundLocationEnabled": false,
           "isAndroidBackgroundLocationEnabled": false,
           "isAndroidForegroundServiceEnabled": false
@@ -201,22 +179,19 @@ your location for dream context (optional).",
       [
         "expo-contacts",
         {
-          "contactsPermission": "Allow DreamerCloud to access your 
-contacts to share dreams with friends (optional)."
+          "contactsPermission": "Allow DreamerCloud to access your contacts to share dreams with friends (optional)."
         }
       ],
       [
         "expo-calendar",
         {
-          "calendarPermission": "Allow DreamerCloud to access your 
-calendar to set dream recording reminders (optional)."
+          "calendarPermission": "Allow DreamerCloud to access your calendar to set dream recording reminders (optional)."
         }
       ],
       [
         "expo-sensors",
         {
-          "motionPermission": "Allow DreamerCloud to access motion sensors 
-for sleep pattern detection (optional)."
+          "motionPermission": "Allow DreamerCloud to access motion sensors for sleep pattern detection (optional)."
         }
       ],
       [
@@ -228,14 +203,17 @@ for sleep pattern detection (optional)."
     ],
     "extra": {
       "eas": {
-        "projectId": "your-eas-project-id"
+        "projectId": "4d8e2cbd-e2c9-477a-bc7d-f8d8d92ff669"
       },
       "EXPO_PUBLIC_REVENUECAT_PUBLIC_KEY": "your_revenuecat_public_key",
       "EXPO_PUBLIC_SUPABASE_URL": "your_supabase_project_url",
       "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your_supabase_anon_key",
-      "EXPO_PUBLIC_ELEVENLABS_API_KEY": "your_elevenlabs_api_key"
+      "EXPO_PUBLIC_ELEVENLABS_API_KEY": "your_elevenlabs_api_key",
+      "router": {
+        "origin": "https://dreamercloud.app/"
+      }
     },
-    "owner": "sporeever",
+    "owner": "sporesinger",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -246,4 +224,3 @@ for sleep pattern detection (optional)."
     "scheme": "dreamercloud"
   }
 }
-
